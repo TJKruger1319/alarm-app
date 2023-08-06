@@ -1,0 +1,23 @@
+/alarm_backend/venv
+/alarm_backend/__pycache__
+
+# dependencies
+/alarm-frontend/node_modules
+/alarm-frontend/.pnp
+/alarm-frontend/.pnp.js
+
+# testing
+/alarm-frontend/coverage
+
+# production
+/alarm-frontend/build
+
+/alarm-frontend/.DS_Store
+/alarm-frontend/.env.local
+/alarm-frontend/.env.development.local
+/alarm-frontend/.env.test.local
+/alarm-frontend/.env.production.local
+
+/alarm-frontend/npm-debug.log*
+/alarm-frontend/yarn-debug.log*
+/alarm-frontend/yarn-error.log*
