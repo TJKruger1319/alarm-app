@@ -1,15 +1,13 @@
 import React, { createContext, useEffect, useState } from "react";
-import Sound from "../Placeholder/Whistling-SoundBible.com-1246385697.mp3"
 
-const alarm = new Audio(Sound);
+
 export const Context = createContext();
 
 function ContextAlarm({ children }) {
-    const [hour, setHour] = useState("");
-    const [minute, setMinute] = useState("");
+    const [realHour, setHour] = useState("");
+    const [realMinute, setMinute] = useState("");
     const [amPm, setAmPm] = useState("");
-    const [alarmTime, setAlarmTime] = useState("");
-    const [alarmExists, setAlarmExists] = useState("");
+    
 
     useEffect(() => {
         setInterval(() => {
@@ -36,27 +34,16 @@ function ContextAlarm({ children }) {
         }, 1000)
     }, [])
 
-    if (alarmTime === `${hour}${minute}${amPm}`) {
-        alarm.play();
-        alarm.loop = true;
-    }
 
-    const pauseAlarm = () => {
-        alarm.pause();
-        setAlarmTime("");
-    }
+    
+
 
     return (
         <Context.Provider
             value={{
-                hour,
-                minute,
-                amPm,
-                alarmTime,
-                setAlarmTime,
-                pauseAlarm,
-                alarmExists,
-                setAlarmExists
+                realHour,
+                realMinute,
+                amPm
             }}
         >
             {children}

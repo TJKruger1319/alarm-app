@@ -2,13 +2,11 @@ import React, { useContext } from "react";
 import { Context } from "./Context";
 
 function Clock() {
-    const { hour, minute, amPm} = useContext(Context);
+    const { realHour, realMinute, amPm} = useContext(Context);
 
     return (
         <div>
-            <div>{`${hour}:`}</div>
-            <div>{`${minute}`}</div>
-            <div>{`${amPm}`}</div>
+            <h1>{`${realHour}:${realMinute} ${amPm}`}</h1>
         </div>
     )
 }

@@ -19,4 +19,4 @@ class Alarm(db.Model):
     AMorPM = db.Column(db.String, nullable=False)
     type = db.Column(db.String, nullable=False)
     difficulty = db.Column(db.Integer, nullable=False)
-    sound = db.Column(db.String, nullable=False)
+
