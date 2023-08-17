@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "./Context";
 import '../css/alarm.css';
 import Sound from "../LostWoods.mp3";
+import axios from "axios";
+const BASE_URL = "http://127.0.0.1:5000"
 
-function Alarm({AMorPM, difficulty, hour, id, minute, type}) {
+function Alarm({AMorPM, difficulty, hour, id, minute, type, handler}) {
     const [alarm] = useState(new Audio(Sound))
     const { realHour, realMinute, amPm } = useContext(Context);
     const [alarmTime, setAlarmTime] = useState();
@@ -24,6 +26,11 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type}) {
     const pauseAlarm = () => {
         console.log("Alarm is paused")
         alarm.pause();
+    }
+
+    async function deleteAlarm() {
+        await axios.post(`${BASE_URL}/alarms/${id}/delete`);
+        handler();
     }
 
     if (hour < 10) hour = `0${hour}`
@@ -51,7 +58,7 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type}) {
                 <input type="checkbox" onClick={alarmExists ? noAlarm : setAlarm} defaultChecked={true}></input>
                 <span className="slider round"></span>
             </label>
-
+            <button onClick={deleteAlarm}>Delete Alarm</button>
             <button onClick={pauseAlarm}>TEMP PAUSE BUTTON</button>
         </div>
     )

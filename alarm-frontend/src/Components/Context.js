@@ -7,7 +7,6 @@ function ContextAlarm({ children }) {
     const [realHour, setHour] = useState("");
     const [realMinute, setMinute] = useState("");
     const [amPm, setAmPm] = useState("");
-    
 
     useEffect(() => {
         setInterval(() => {
@@ -43,7 +42,7 @@ function ContextAlarm({ children }) {
             value={{
                 realHour,
                 realMinute,
-                amPm
+                amPm,
             }}
         >
             {children}
