@@ -17,7 +17,6 @@ function AlarmList() {
     let [count, setCount] = React.useState(0); 
     const handleCount = ()=>{ 
         setCount(++count);
-        console.log(count); 
     }
     
     useEffect(function askAlarmAPI() {

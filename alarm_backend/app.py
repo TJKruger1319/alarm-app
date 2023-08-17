@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from models import db, connect_db, Alarm
-from helper import serialize
+from helper import sort
 from flask_cors import CORS
 
 
@@ -18,11 +18,9 @@ connect_db(app)
 @app.route("/alarms")
 def get_all_alarms():
     """Get all alarms"""
-    all_alarm = []
     alarms = Alarm.query.all()
-    for a in alarms:
-        all_alarm.append(serialize(a))
-    return jsonify(all_alarm)
+    sorted_alarms = sort(alarms)
+    return jsonify(sorted_alarms)
 
 
 @app.route("/alarms/add", methods=['POST'])

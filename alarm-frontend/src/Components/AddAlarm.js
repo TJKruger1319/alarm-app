@@ -63,9 +63,9 @@ function AddAlarm({ handler }) {
                     <option disabled value="type">
                         Type
                     </option>
-                    <option value="math">Math</option>
-                    <option value="pokemon">Pokèmon</option>
-                    <option value="typing">Typing</option>
+                    <option value="Math">Math</option>
+                    <option value="Pokèmon">Pokèmon</option>
+                    <option value="Typing">Typing</option>
                 </select>
                 <select {...setDiff}>
                     <option disabled value="diff">
