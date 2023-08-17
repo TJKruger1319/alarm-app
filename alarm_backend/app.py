@@ -25,6 +25,7 @@ def get_all_alarms():
 
 @app.route("/alarms/add", methods=['POST'])
 def add_alarm():
+    """Add an alarm"""
     response = request.json
     hour = response['hour']
     minute = response['minutes']
@@ -39,6 +40,7 @@ def add_alarm():
 
 @app.route("/alarms/<int:alarm_id>/delete", methods=['POST'])
 def delete_alarm(alarm_id):
+    """Delete an alarm"""
     alarm = Alarm.query.get_or_404(alarm_id)
     db.session.delete(alarm)
     db.session.commit()

@@ -9,6 +9,7 @@ function ContextAlarm({ children }) {
     const [amPm, setAmPm] = useState("");
 
     useEffect(() => {
+        // Gets the time
         setInterval(() => {
             let date = new Date();
 

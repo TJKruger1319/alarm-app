@@ -7,18 +7,22 @@ const BASE_URL = "http://127.0.0.1:5000"
 
 
 async function getAlarms() {
+    //Get intial alarms from database
     const alarms = await axios.get(`${BASE_URL}/alarms`);
     return alarms.data;
 }
 let response = await getAlarms();
 
 function AlarmList() {
+    // List all the alarms in the database, making them active
     const [alarms, setAlarms] = useState([response])
     let [count, setCount] = React.useState(0); 
+    // Rerenders the component
     const handleCount = ()=>{ 
         setCount(++count);
     }
     
+    // Gets updated list of alarms if one is added or deleted
     useEffect(function askAlarmAPI() {
         async function getMoreAlarms() {
             const alarms = await axios.get(`${BASE_URL}/alarms`);

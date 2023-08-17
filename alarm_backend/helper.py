@@ -1,4 +1,5 @@
 def serialize(a):
+    # Returns an alarm object in a dict
     return {
         'id' : a.id,
         'hour' : a.hour,
@@ -10,6 +11,7 @@ def serialize(a):
 
 
 def sort(alarms):
+    # Sorts the alarms by time and then serializes each object
     for i in range(len(alarms)):
         hours = alarms[i].hour
         minutes = alarms[i].minute
