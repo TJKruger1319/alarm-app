@@ -5,7 +5,7 @@ import AddAlarm from './AddAlarm';
 import { BASE_URL } from '../constants';
 
 
-function AlarmList({ setCurrentType, setCurrentDiff }) {
+function AlarmList({ setStateSliceName, setDifficulty }) {
     // List all the alarms in the database, making them active
     const [alarms, setAlarms] = useState([]);
     let [count, setCount] = useState(0); 
@@ -35,8 +35,8 @@ function AlarmList({ setCurrentType, setCurrentDiff }) {
                     minute={minute}
                     type={type}
                     handler={handleCount}
-                    setCurrentType={setCurrentType}
-                    setCurrentDiff={setCurrentDiff}
+                    setStateSliceName={setStateSliceName}
+                    setDifficulty={setDifficulty}
                     />
                 </div>
             ))}

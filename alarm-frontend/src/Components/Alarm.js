@@ -5,7 +5,7 @@ import { alarm } from "../sound";
 import axios from "axios";
 import { BASE_URL } from '../constants';
 
-function Alarm({AMorPM, difficulty, hour, id, minute, type, handler, setCurrentType, setCurrentDiff}) {
+function Alarm({AMorPM, difficulty, hour, id, minute, type, handler, setStateSliceName, setDifficulty}) {
     // Actual alarm component
     const { realHour, realMinute, amPm} = useContext(Context);
     const [alarmTime, setAlarmTime] = useState();
@@ -40,8 +40,8 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type, handler, setCurrentT
         // Sets the alarm off and plays the sound
         alarm.play();
         alarm.loop = true;
-        setCurrentType(`${type}`);
-        setCurrentDiff(`${difficulty}`)
+        setStateSliceName(`${type}`);
+        setDifficulty(`${difficulty}`);
     }
 
     useEffect(() => {

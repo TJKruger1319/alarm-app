@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, make_response
 from models import db, connect_db, Alarm
-from helper import makeDict, make_math, serialize
+from helper import makeDict, generate_math_prompt, serialize
 from flask_cors import CORS
 
 
@@ -20,7 +20,6 @@ def get_all_alarms():
     """Get all alarms"""
     alarms = Alarm.query.all()
     sorted_alarms = makeDict(alarms)
-    print(sorted_alarms, "SORTED ALARMS ********************")
     preserialized = []
     for a in sorted_alarms:
         alarm = Alarm.query.get_or_404(a)
@@ -64,8 +63,5 @@ def delete_alarm(alarm_id):
 @app.route("/Math")
 def math_problem():
     """Returns math problems"""
-    math_list = []
-    problem = make_math()
-    math_list.append(problem)
-
-    return jsonify(math_list)
+    problem = generate_math_prompt()
+    return jsonify(problem)

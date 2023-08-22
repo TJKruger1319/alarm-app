@@ -5,7 +5,7 @@ import { pauseAlarm } from "../sound";
 
 
 
-function Math({ difficulty, setCurrentType }) {
+function Math({ difficulty, setStateSliceName }) {
     const [num1, setNum1] = useState();
     const [num2, setNum2] = useState();
     const [length, setLength] = useState(difficulty);
@@ -13,25 +13,28 @@ function Math({ difficulty, setCurrentType }) {
     const [correct, setCorrect] = useState();
     
     if (length === 0) {
+        // Ends the alarm after all questions have been answered
         pauseAlarm();
-        setCurrentType("Base");
+        setStateSliceName("Base");
     }
 
     const handleSubmit = (e) => {
+        // Checks to see if math problem has been answered correctly
         e.preventDefault();
         if (formData === correct) {
             setLength(length-1);
         } else {
-            alert("Incorrect!")
+            alert("Incorrect!");
         }
     }
 
     useEffect(function askAlarmAPI() {
         async function getMathProblem() {
+            // Gets the math problems from the api
             const response = await axios.get(`${BASE_URL}/Math`);
-            setNum1(response.data[0].first);
-            setNum2(response.data[0].second);
-            setCorrect(response.data[0].first + response.data[0].second);
+            setNum1(response.data.first);
+            setNum2(response.data.second);
+            setCorrect(response.data.first + response.data.second);
         }
         getMathProblem();
 

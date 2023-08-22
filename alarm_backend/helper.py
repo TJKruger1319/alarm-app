@@ -12,7 +12,7 @@ def serialize(a):
     }
 
 def makeDict(alarms):
-    alarmsDict = {}
+    alarms_dict = {}
     for a in alarms:
         hours = a.hour
         minutes = a.minute
@@ -22,18 +22,19 @@ def makeDict(alarms):
             hours = hours + 12
         hours = hours * 100
         total = hours + minutes
-        alarmsDict[a.id] = total
-    return sort(alarmsDict)
+        alarms_dict[a.id] = total
+    return sort(alarms_dict)
 
-def sort(alarmsDict):
-    sorted_dict = {k: v for k, v in sorted(alarmsDict.items(), key=lambda item: item[1])}
-    return (sorted_dict.keys()) 
-
-
-
+def sort(alarms_dict):
+    sorted_items = sorted(alarms_dict.items(), key=lambda item: item[1])
+    sorted_dict = dict(sorted_items)
+    return list(sorted_dict.keys())
 
 
-def make_math():
+
+
+
+def generate_math_prompt():
     num1 = random.randint(20, 100)
     num2 = random.randint(20, 100)
     return { 'first':num1, 'second':num2 }

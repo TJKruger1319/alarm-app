@@ -5,10 +5,10 @@ import AlarmList from "./Components/AlarmList";
 import Math from "./Components/Math";
 
 function App() {
-  const [type, setCurrentType] = useState("Base");
-  const [difficulty, setCurrentDiff] = useState();
+  const [stateSliceName, setStateSliceName] = useState("Base");
+  const [difficulty, setDifficulty] = useState();
 
-  if ( type === "Base") {
+  if ( stateSliceName === "Base") {
     return (
         <section>
           <div>
@@ -16,21 +16,21 @@ function App() {
               <ContextAlarm>
                 <Clock />
                 <AlarmList 
-                setCurrentType={setCurrentType}
-                setCurrentDiff = {setCurrentDiff}
+                setStateSliceName={setStateSliceName}
+                setDifficulty = {setDifficulty}
                 />
               </ContextAlarm>
             </div>
           </div>
         </section>
       );
-  } else if (type === "Math") {
+  } if (stateSliceName === "Math") {
     return (
       <section>
         <div>
             <Math 
             difficulty={difficulty}
-            setCurrentType={setCurrentType}
+            setStateSliceName={setStateSliceName}
             />
         </div>
       </section>
