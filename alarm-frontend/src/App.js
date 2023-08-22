@@ -1,4 +1,3 @@
-import AddAlarm from "./Components/AddAlarm";
 import Clock from "./Components/Clock";
 import ContextAlarm from "./Components/Context";
 import AlarmList from "./Components/AlarmList";
@@ -11,7 +10,6 @@ function App() {
           <ContextAlarm>
             <Clock />
             <AlarmList />
-            <AddAlarm />
           </ContextAlarm>
         </div>
       </div>

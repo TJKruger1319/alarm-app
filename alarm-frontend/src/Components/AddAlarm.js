@@ -1,24 +1,32 @@
 import React from "react";
 import { minutesNumber, hourNumber } from "../fixNumbers";
 import useOption from "../Hooks/useOption";
-//import { Context } from "./Context";
+import axios from "axios";
 
-function AddAlarm() {
+const BASE_URL = "http://127.0.0.1:5000";
+
+function AddAlarm({ handler }) {
     const [hour, setHour] = useOption("Hour");
     const [minutes, setMinutes] = useOption("Minutes");
     const [amPmOption, setAmPmOption] = useOption("Am-Pm");
+    const [type, setType] = useOption("type");
+    const [difficulty, setDiff] = useOption("diff");
 
-
-    
-
-    // const stopAlarm = () => {
-    //         pauseAlarm();
-    //         setAlarmExists(false);
-    // }
-
-    const newAlarm = () => {
-        //Adds new alarm to backend
-        //TODO
+    async function newAlarm() {
+        if (
+            hour !== "Hour" &&
+            minutes !== "Minutes" &&
+            amPmOption !== 'Am-Pm' &&
+            type !== "type" &&
+            difficulty !== "diff"
+        ) {
+            await axios.post(`${BASE_URL}/alarms/add`, {
+                hour, minutes, amPmOption, type, difficulty
+            })
+            handler();
+        } else {
+            alert("Please select an option for each field")
+        }
     }
 
     return (
@@ -51,13 +59,28 @@ function AddAlarm() {
                     <option value="AM">Am</option>
                     <option value="PM">Pm</option>
                 </select>
+                <select {...setType}>
+                    <option disabled value="type">
+                        Type
+                    </option>
+                    <option value="math">Math</option>
+                    <option value="pokemon">Pokèmon</option>
+                    <option value="typing">Typing</option>
+                </select>
+                <select {...setDiff}>
+                    <option disabled value="diff">
+                        Difficulty
+                    </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>                    
+                    <option value="3">3</option>                    
+                </select>
             </div>
             <button onClick={newAlarm}>
-                        "Add Alarm"
+                        Add Alarm
             </button>
         </div>
     )
 }
-
 
 export default AddAlarm;
