@@ -6,29 +6,31 @@ import axios from "axios";
 const BASE_URL = "http://127.0.0.1:5000"
 
 function Alarm({AMorPM, difficulty, hour, id, minute, type, handler}) {
+    // Actual alarm component
     const [alarm] = useState(new Audio(Sound))
     const { realHour, realMinute, amPm } = useContext(Context);
     const [alarmTime, setAlarmTime] = useState();
     const [alarmExists, setAlarmExists] = useState("");
 
     const setAlarm = () => {
-        console.log("You have set an alarm!")
+        // Makes the alarm exist and able to go off
         setAlarmExists(true);
         setAlarmTime(`${hour}${minute}${AMorPM}`);
     };
 
     const noAlarm = () => {
-        console.log("Alarm is turned off!")
+        // Turns off alarm
         setAlarmExists(false);
         setAlarmTime("");
     }
 
     const pauseAlarm = () => {
-        console.log("Alarm is paused")
+        // Turns off alarm sound
         alarm.pause();
     }
 
     async function deleteAlarm() {
+        // Deletes alarm from database
         await axios.post(`${BASE_URL}/alarms/${id}/delete`);
         handler();
     }
@@ -37,13 +39,13 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type, handler}) {
     if (minute < 10) minute = `0${minute}`
 
     if (alarmTime === `${realHour}${realMinute}${amPm}`) {
-        console.log("Alarm is going off!");
+        // Sets the alarm off and plays the sound
         alarm.play();
         alarm.loop = true;
     }
 
     useEffect(() => {
-        console.log("useEffect set an alarm")
+        // Sets the alarms upon intial render
         setAlarmExists(true);
         setAlarmTime(`${hour}${minute}${AMorPM}`);
       }, [hour, minute, AMorPM]);

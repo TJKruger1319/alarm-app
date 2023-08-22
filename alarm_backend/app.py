@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from models import db, connect_db, Alarm
-from helper import serialize
+from helper import sort
 from flask_cors import CORS
 
 
@@ -18,15 +18,14 @@ connect_db(app)
 @app.route("/alarms")
 def get_all_alarms():
     """Get all alarms"""
-    all_alarm = []
     alarms = Alarm.query.all()
-    for a in alarms:
-        all_alarm.append(serialize(a))
-    return jsonify(all_alarm)
+    sorted_alarms = sort(alarms)
+    return jsonify(sorted_alarms)
 
 
 @app.route("/alarms/add", methods=['POST'])
 def add_alarm():
+    """Add an alarm"""
     response = request.json
     hour = response['hour']
     minute = response['minutes']
@@ -41,6 +40,7 @@ def add_alarm():
 
 @app.route("/alarms/<int:alarm_id>/delete", methods=['POST'])
 def delete_alarm(alarm_id):
+    """Delete an alarm"""
     alarm = Alarm.query.get_or_404(alarm_id)
     db.session.delete(alarm)
     db.session.commit()

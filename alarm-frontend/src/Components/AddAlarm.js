@@ -13,6 +13,7 @@ function AddAlarm({ handler }) {
     const [difficulty, setDiff] = useOption("diff");
 
     async function newAlarm() {
+        // Sends new alarm to database if valid
         if (
             hour !== "Hour" &&
             minutes !== "Minutes" &&
@@ -23,6 +24,7 @@ function AddAlarm({ handler }) {
             await axios.post(`${BASE_URL}/alarms/add`, {
                 hour, minutes, amPmOption, type, difficulty
             })
+            // Update AlarmList
             handler();
         } else {
             alert("Please select an option for each field")
@@ -63,9 +65,9 @@ function AddAlarm({ handler }) {
                     <option disabled value="type">
                         Type
                     </option>
-                    <option value="math">Math</option>
-                    <option value="pokemon">Pokèmon</option>
-                    <option value="typing">Typing</option>
+                    <option value="Math">Math</option>
+                    <option value="Pokèmon">Pokèmon</option>
+                    <option value="Typing">Typing</option>
                 </select>
                 <select {...setDiff}>
                     <option disabled value="diff">
