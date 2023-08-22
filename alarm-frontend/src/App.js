@@ -1,20 +1,43 @@
+import React, { useState } from "react";
 import Clock from "./Components/Clock";
 import ContextAlarm from "./Components/Context";
 import AlarmList from "./Components/AlarmList";
+import Math from "./Components/Math";
 
 function App() {
-  return (
-    <section>
-      <div>
+  const [stateSliceName, setStateSliceName] = useState("Base");
+  const [difficulty, setDifficulty] = useState();
+
+  if ( stateSliceName === "Base") {
+    return (
+        <section>
+          <div>
+            <div>
+              <ContextAlarm>
+                <Clock />
+                <AlarmList 
+                setStateSliceName={setStateSliceName}
+                setDifficulty = {setDifficulty}
+                />
+              </ContextAlarm>
+            </div>
+          </div>
+        </section>
+      );
+  } if (stateSliceName === "Math") {
+    return (
+      <section>
         <div>
-          <ContextAlarm>
-            <Clock />
-            <AlarmList />
-          </ContextAlarm>
+            <Math 
+            difficulty={difficulty}
+            setStateSliceName={setStateSliceName}
+            />
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    )
+  }
+
+  
 }
 
 export default App;
