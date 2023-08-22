@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "./Context";
 import '../css/alarm.css';
-import Sound from "../LostWoods.mp3";
+import { alarm } from "../sound";
 import axios from "axios";
-const BASE_URL = "http://127.0.0.1:5000"
+import { BASE_URL } from '../constants';
 
-function Alarm({AMorPM, difficulty, hour, id, minute, type, handler}) {
+function Alarm({AMorPM, difficulty, hour, id, minute, type, handler, setCurrentType, setCurrentDiff}) {
     // Actual alarm component
-    const [alarm] = useState(new Audio(Sound))
-    const { realHour, realMinute, amPm } = useContext(Context);
+    const { realHour, realMinute, amPm} = useContext(Context);
     const [alarmTime, setAlarmTime] = useState();
     const [alarmExists, setAlarmExists] = useState("");
 
@@ -24,17 +23,16 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type, handler}) {
         setAlarmTime("");
     }
 
-    const pauseAlarm = () => {
-        // Turns off alarm sound
-        alarm.pause();
-    }
+    
 
     async function deleteAlarm() {
         // Deletes alarm from database
-        await axios.post(`${BASE_URL}/alarms/${id}/delete`);
+        await axios.delete(`${BASE_URL}/alarms/${id}`);
         handler();
     }
 
+
+    // Correctly formats the hours and minutes
     if (hour < 10) hour = `0${hour}`
     if (minute < 10) minute = `0${minute}`
 
@@ -42,6 +40,8 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type, handler}) {
         // Sets the alarm off and plays the sound
         alarm.play();
         alarm.loop = true;
+        setCurrentType(`${type}`);
+        setCurrentDiff(`${difficulty}`)
     }
 
     useEffect(() => {
@@ -57,11 +57,10 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type, handler}) {
             <p>{`Difficulty: ${difficulty}`}</p>
 
             <label className="switch">
-                <input type="checkbox" onClick={alarmExists ? noAlarm : setAlarm} defaultChecked={true}></input>
+                <input type="checkbox" onClick={alarmExists ? noAlarm : setAlarm} defaultChecked></input>
                 <span className="slider round"></span>
             </label>
             <button onClick={deleteAlarm}>Delete Alarm</button>
-            <button onClick={pauseAlarm}>TEMP PAUSE BUTTON</button>
         </div>
     )
 }

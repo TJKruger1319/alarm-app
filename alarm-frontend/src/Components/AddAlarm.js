@@ -2,8 +2,7 @@ import React from "react";
 import { minutesNumber, hourNumber } from "../fixNumbers";
 import useOption from "../Hooks/useOption";
 import axios from "axios";
-
-const BASE_URL = "http://127.0.0.1:5000";
+import { BASE_URL } from '../constants';
 
 function AddAlarm({ handler }) {
     const [hour, setHour] = useOption("Hour");

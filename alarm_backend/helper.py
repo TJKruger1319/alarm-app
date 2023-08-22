@@ -1,3 +1,5 @@
+import random
+
 def serialize(a):
     # Returns an alarm object in a dict
     return {
@@ -9,24 +11,29 @@ def serialize(a):
         'difficulty' : a.difficulty,
     }
 
-
-def sort(alarms):
-    # Sorts the alarms by time and then serializes each object
-    for i in range(len(alarms)):
-        hours = alarms[i].hour
-        minutes = alarms[i].minute
-        if alarms[i].AMorPM == "PM":
-            hours = hours + 12
-        ia = str(hours) + str(minutes)
-        for j in range(len(alarms)):
-            hours2 = alarms[j].hour
-            minutes2 = alarms[j].minute
-            if alarms[j].AMorPM == "PM":
-                hours2 = hours2 + 12
-            ja = str(hours2) + str(minutes2)
-            if ia < ja:
-                alarms[j],alarms[i] = alarms[i],alarms[j]
-    all_alarms = []
+def makeDict(alarms):
+    alarmsDict = {}
     for a in alarms:
-        all_alarms.append(serialize(a))
-    return all_alarms
+        hours = a.hour
+        minutes = a.minute
+        if hours == 12:
+            hours = 0
+        if a.AMorPM == "PM":
+            hours = hours + 12
+        hours = hours * 100
+        total = hours + minutes
+        alarmsDict[a.id] = total
+    return sort(alarmsDict)
+
+def sort(alarmsDict):
+    sorted_dict = {k: v for k, v in sorted(alarmsDict.items(), key=lambda item: item[1])}
+    return (sorted_dict.keys()) 
+
+
+
+
+
+def make_math():
+    num1 = random.randint(20, 100)
+    num2 = random.randint(20, 100)
+    return { 'first':num1, 'second':num2 }
