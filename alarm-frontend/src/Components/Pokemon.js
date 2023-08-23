@@ -3,7 +3,7 @@ import axios from "axios";
 import { pauseAlarm } from "../sound";
 
 function Pokemon({ difficulty, setStateSliceName }) {
-    let [name, setName] = useState("");
+    const [name, setName] = useState("");
     const [sprite, setSprite] = useState("");
     const [length, setLength] = useState(difficulty);
     const [formData, setFormData] = useState('');
@@ -22,8 +22,8 @@ function Pokemon({ difficulty, setStateSliceName }) {
         // Checks to see if pokemon is correctly guessed
         e.preventDefault();
         let LowerCaseFormData = formData.toLowerCase();
-        setName(name = name.replace(/-/g, ' '));
-        if (LowerCaseFormData === name) {
+        let fixedName = name.replace(/-/g, ' ');
+        if (LowerCaseFormData === fixedName) {
             setLength(length-1);
             e.target.reset();
         } else {
@@ -66,7 +66,6 @@ function Pokemon({ difficulty, setStateSliceName }) {
             </form>
             <button onClick={dontKnowPokemon}>I don't know!</button>
             <p>Pokèmon remaining: {length}</p>
-            <button onClick={pauseAlarm}>TEMP PAUSE BUTTON</button>
         </div>
         
     )

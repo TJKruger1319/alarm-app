@@ -1,4 +1,5 @@
 import random
+from wonderwords import RandomSentence
 
 def serialize(a):
     # Returns an alarm object in a dict
@@ -38,3 +39,8 @@ def generate_math_prompt():
     num1 = random.randint(20, 100)
     num2 = random.randint(20, 100)
     return { 'first':num1, 'second':num2 }
+
+
+def generate_random_sentence():
+    s = RandomSentence()
+    return s.sentence()

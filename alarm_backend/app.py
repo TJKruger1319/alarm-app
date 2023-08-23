@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, make_response
 from models import db, connect_db, Alarm
-from helper import makeDict, generate_math_prompt, serialize
+from helper import makeDict, generate_math_prompt, serialize, generate_random_sentence
 from flask_cors import CORS
 
 
@@ -65,3 +65,9 @@ def math_problem():
     """Returns math problems"""
     problem = generate_math_prompt()
     return jsonify(problem)
+
+
+@app.route("/Typing")
+def get_sentence():
+    sentence = generate_random_sentence()
+    return jsonify(sentence)
