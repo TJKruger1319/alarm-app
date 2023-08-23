@@ -3,6 +3,7 @@ import Clock from "./Components/Clock";
 import ContextAlarm from "./Components/Context";
 import AlarmList from "./Components/AlarmList";
 import Math from "./Components/Math";
+import Pokemon from "./Components/Pokemon";
 
 function App() {
   const [stateSliceName, setStateSliceName] = useState("Base");
@@ -29,6 +30,17 @@ function App() {
       <section>
         <div>
             <Math 
+            difficulty={difficulty}
+            setStateSliceName={setStateSliceName}
+            />
+        </div>
+      </section>
+    )
+  }  if (stateSliceName === "Pokèmon") {
+    return (
+      <section>
+        <div>
+            <Pokemon 
             difficulty={difficulty}
             setStateSliceName={setStateSliceName}
             />
