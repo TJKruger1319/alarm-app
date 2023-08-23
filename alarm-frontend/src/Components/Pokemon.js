@@ -32,6 +32,7 @@ function Pokemon({ difficulty, setStateSliceName }) {
     }
 
     const dontKnowPokemon = () => {
+        // Allows user to switch to a different pokemon if they don't know the current one
         alert(`The name of this Pokèmon is: ${name}`);
         setCount(prevCount => prevCount + 1);
     }
