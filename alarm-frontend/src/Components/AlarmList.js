@@ -3,6 +3,7 @@ import axios from 'axios';
 import Alarm from './Alarm';
 import AddAlarm from './AddAlarm';
 import { BASE_URL } from '../constants';
+//import '../css/alarmList.css'
 
 
 function AlarmList({ setStateSliceName, setDifficulty }) {

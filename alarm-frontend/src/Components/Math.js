@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL } from '../constants';
 import { pauseAlarm } from "../sound";
-
+import '../css/math.css';
 
 
 function Math({ difficulty, setStateSliceName }) {
@@ -42,11 +42,11 @@ function Math({ difficulty, setStateSliceName }) {
     }, [length])
 
     return (
-        <div>
-            <p>Solve the math problem:</p>
-            <p>{num1} + {num2}</p>
+        <div className="math-container">
+            <h4 className="scale">Solve the math problem:</h4>
+            <p className="scale">{num1} + {num2}</p>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className="scale">
                     Answer: 
                     <input 
                         type="text" 
@@ -54,9 +54,9 @@ function Math({ difficulty, setStateSliceName }) {
                         onInput={e => setFormData(parseInt(e.target.value))}
                     />
                 </label>
-                <button>Submit answer</button>
+                <button className="submit-btn">Submit answer</button>
             </form>
-            <p>Problems remaining: {length}</p>
+            <b className="scale">Problems remaining: {length}</b>
         </div>
     )
 }
