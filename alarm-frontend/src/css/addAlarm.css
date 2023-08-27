@@ -1,0 +1,91 @@
+.add-btn {
+    align-items: center;
+    background-color: #b3e6b8;
+    background-position: 0 0;
+    border: 1px solid #FEE0E0;
+    border-radius: 11px;
+    box-sizing: border-box;
+    color: #23c826;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 33.4929px;
+    list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+    padding: 2px 12px;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: none;
+    text-underline-offset: 1px;
+    transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    word-break: break-word;
+  }
+  
+  .add-btn:active,
+  .add-btn:hover,
+  .add-btn:focus {
+    outline: 0;
+  }
+  
+  
+  .add-btn:active {
+    background-color: #23c826;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+    color: #FFFFFF;
+  }
+  
+  .add-btn:hover {
+    background-color: #FFE3E3;
+    border-color: #2eb01a;
+  }
+  
+  .add-btn:active:hover,
+  .add-btn:focus:hover,
+  .add-btn:focus {
+    background-color: #23c826;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+    color: #FFFFFF;
+  }
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  
+    z-index: 1;
+  
+    outline: none;
+  }
+
+  .select {
+    width: 100%;
+    min-width: 9ch;
+    max-width: 15ch;
+    border: 1px solid var(--select-border);
+    border-radius: 7px;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  }
+
+  .add-container {
+    border: solid black 4px;
+    width: min-content;
+    background-color: white;
+  }

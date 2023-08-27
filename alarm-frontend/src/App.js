@@ -5,6 +5,7 @@ import AlarmList from "./Components/AlarmList";
 import Math from "./Components/Math";
 import Pokemon from "./Components/Pokemon";
 import Typing from "./Components/Typing";
+import './css/app.css';
 
 function App() {
   const [stateSliceName, setStateSliceName] = useState("Base");
@@ -13,7 +14,7 @@ function App() {
   if ( stateSliceName === "Base") {
     return (
         <section>
-          <div>
+          <div className="container">
             <div>
               <ContextAlarm>
                 <Clock />
@@ -29,7 +30,7 @@ function App() {
   } if (stateSliceName === "Math") {
     return (
       <section>
-        <div>
+        <div className="container">
             <Math 
             difficulty={difficulty}
             setStateSliceName={setStateSliceName}
@@ -40,7 +41,7 @@ function App() {
   }  if (stateSliceName === "Pokèmon") {
     return (
       <section>
-        <div>
+        <div className="container">
             <Pokemon 
             difficulty={difficulty}
             setStateSliceName={setStateSliceName}
@@ -51,7 +52,7 @@ function App() {
   } if (stateSliceName === "Typing") {
     return (
       <section>
-        <div>
+        <div className="container">
             <Typing 
             difficulty={difficulty}
             setStateSliceName={setStateSliceName}

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "./Context";
+import '../css/clock.css';
+
 
 function Clock() {
     // Displays digital clock of the time

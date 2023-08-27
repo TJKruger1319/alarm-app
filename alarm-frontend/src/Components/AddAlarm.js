@@ -3,6 +3,7 @@ import { minutesNumber, hourNumber } from "../fixNumbers";
 import useOption from "../Hooks/useOption";
 import axios from "axios";
 import { BASE_URL } from '../constants';
+import '../css/addAlarm.css';
 
 function AddAlarm({ handler }) {
     const [hour, setHour] = useOption("Hour");
@@ -32,8 +33,8 @@ function AddAlarm({ handler }) {
 
     return (
         <div>
-            <div>
-                <select {...setHour}>
+            <div className="add-container">
+                <select className="select" {...setHour}>
                     <option disabled value="Hour">
                         Hour
                     </option>
@@ -43,7 +44,7 @@ function AddAlarm({ handler }) {
                     </option>
                     ))}
                 </select>
-                <select {...setMinutes}>
+                <select className="select" {...setMinutes}>
                     <option disabled value="Minutes">
                         Minutes
                     </option>
@@ -53,14 +54,14 @@ function AddAlarm({ handler }) {
                     </option>
                     ))}
                 </select>
-                <select {...setAmPmOption}>
+                <select className="select" {...setAmPmOption}>
                     <option disabled value="Am-Pm">
                         Am/Pm
                     </option>
                     <option value="AM">Am</option>
                     <option value="PM">Pm</option>
                 </select>
-                <select {...setType}>
+                <select className="select" {...setType}>
                     <option disabled value="type">
                         Type
                     </option>
@@ -68,7 +69,7 @@ function AddAlarm({ handler }) {
                     <option value="Pokèmon">Pokèmon</option>
                     <option value="Typing">Typing</option>
                 </select>
-                <select {...setDiff}>
+                <select className="select" {...setDiff}>
                     <option disabled value="diff">
                         Difficulty
                     </option>
@@ -77,7 +78,7 @@ function AddAlarm({ handler }) {
                     <option value="3">3</option>                                   
                 </select>
             </div>
-            <button onClick={newAlarm}>
+            <button onClick={newAlarm} className="add-btn">
                         Add Alarm
             </button>
         </div>

@@ -1,0 +1,125 @@
+.poke-container {
+    border: solid black 4px;
+    background-color: white;
+    padding: 10em;
+  }
+
+.scale {
+    zoom: 2;
+}
+
+.pokemon-image {
+    zoom: 4;
+}
+
+
+  .submit-btn {
+    align-items: center;
+    background-color: #b3e6b8;
+    background-position: 0 0;
+    border: 1px solid #FEE0E0;
+    border-radius: 11px;
+    box-sizing: border-box;
+    color: #23c826;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 33.4929px;
+    list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+    padding: 2px 12px;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: none;
+    text-underline-offset: 1px;
+    transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    word-break: break-word;
+  }
+  
+  .submit-btn:active,
+  .submit-btn:hover,
+  .submit-btn:focus {
+    outline: 0;
+  }
+  
+  
+  .submit-btn:active {
+    background-color: #23c826;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+    color: #FFFFFF;
+  }
+  
+  .submit-btn:hover {
+    background-color: #FFE3E3;
+    border-color: #2eb01a;
+  }
+  
+  .submit-btn:active:hover,
+  .submit-btn:focus:hover,
+  .submit-btn:focus {
+    background-color: #23c826;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+    color: #FFFFFF;
+  }
+
+  .idk-btn {
+    align-items: center;
+    background-color: #FFE7E7;
+    background-position: 0 0;
+    border: 1px solid #FEE0E0;
+    border-radius: 11px;
+    box-sizing: border-box;
+    color: #D33A2C;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 33.4929px;
+    list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+    padding: 2px 12px;
+    text-align: left;
+    text-decoration: none;
+    text-shadow: none;
+    text-underline-offset: 1px;
+    transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    word-break: break-word;
+  }
+  
+  .idk-btn:active,
+  .idk-btn:hover,
+  .idk-btn:focus {
+    outline: 0;
+  }
+  
+  
+  .idk-btn:active {
+    background-color: #D33A2C;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+    color: #FFFFFF;
+  }
+  
+  .idk-btn:hover {
+    background-color: #FFE3E3;
+    border-color: #FAA4A4;
+  }
+  
+  .idk-btn:active:hover,
+  .idk-btn:focus:hover,
+  .idk-btn:focus {
+    background-color: #D33A2C;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+    color: #FFFFFF;
+  }
+
+  .button-container {
+    display: flex;
+  }
+  

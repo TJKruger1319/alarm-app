@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { pauseAlarm } from "../sound";
+import '../css/pokemon.css';
 
 function Pokemon({ difficulty, setStateSliceName }) {
     const [name, setName] = useState("");
@@ -51,21 +52,25 @@ function Pokemon({ difficulty, setStateSliceName }) {
     }, [length, count])
 
     return (
-        <div>
-            <img src={sprite} alt=""/>
+        <div className="poke-container">
+            <img className="pokemon-image" src={sprite} alt=""/>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label className="scale">
                 Pokèmon Name: 
                     <input 
+                        className="scale"
                         type="text" 
                         value={FormData.text} 
                         onInput={e => setFormData(String(e.target.value))}
                     />
                 </label>
-                <button>Submit answer</button>
+                <div className="button-container">
+                    <button className="submit-btn">Submit answer</button>
+                    <button onClick={dontKnowPokemon} className="idk-btn" type="button">I don't know!</button>
+                </div>
             </form>
-            <button onClick={dontKnowPokemon}>I don't know!</button>
-            <p>Pokèmon remaining: {length}</p>
+            
+            <p className="scale">Pokèmon remaining: {length}</p>
         </div>
         
     )

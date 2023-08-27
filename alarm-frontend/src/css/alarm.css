@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #ec2608;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -39,11 +39,11 @@
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #11b722;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #11b722;
   }
   
   input:checked + .slider:before {
@@ -60,3 +60,65 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+
+
+
+.delete-btn {
+  align-items: center;
+  background-color: #FFE7E7;
+  background-position: 0 0;
+  border: 1px solid #FEE0E0;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #D33A2C;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.delete-btn:active,
+.delete-btn:hover,
+.delete-btn:focus {
+  outline: 0;
+}
+
+
+.delete-btn:active {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+.delete-btn:hover {
+  background-color: #FFE3E3;
+  border-color: #FAA4A4;
+}
+
+.delete-btn:active:hover,
+.delete-btn:focus:hover,
+.delete-btn:focus {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+.alarm {
+  border: solid black 4px;
+  width: min-content;
+  background-color: white;
+}

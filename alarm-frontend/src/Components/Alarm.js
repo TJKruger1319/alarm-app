@@ -51,16 +51,18 @@ function Alarm({AMorPM, difficulty, hour, id, minute, type, handler, setStateSli
       }, [hour, minute, AMorPM]);
 
     return (
-        <div>
-            <h2>{`${hour}:${minute} ${AMorPM}`}</h2>
-            <p>{`Type: ${type}`}</p>
-            <p>{`Difficulty: ${difficulty}`}</p>
-
-            <label className="switch">
-                <input type="checkbox" onClick={alarmExists ? noAlarm : setAlarm} defaultChecked></input>
-                <span className="slider round"></span>
-            </label>
-            <button onClick={deleteAlarm}>Delete Alarm</button>
+        <div className="alarm">
+            <div>
+            <h3>{`${hour}:${minute} ${AMorPM}`}</h3>
+            <p>{`Type: ${type} Difficulty: ${difficulty}`}</p>
+            </div>
+            <div className="button-container">
+                <label className="switch">
+                    <input type="checkbox" onClick={alarmExists ? noAlarm : setAlarm} defaultChecked></input>
+                    <span className="slider round"></span>
+                </label>
+                <button className="delete-btn" onClick={deleteAlarm}>Delete Alarm</button>
+            </div>
         </div>
     )
 }
