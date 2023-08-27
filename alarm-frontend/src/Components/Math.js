@@ -26,6 +26,7 @@ function Math({ difficulty, setStateSliceName }) {
         } else {
             alert("Incorrect!");
         }
+        e.target.reset();
     }
 
     useEffect(function askAlarmAPI() {
@@ -55,7 +56,6 @@ function Math({ difficulty, setStateSliceName }) {
                 </label>
                 <button>Submit answer</button>
             </form>
-            <button onClick={pauseAlarm}>Temp pause button</button>
             <p>Problems remaining: {length}</p>
         </div>
     )
