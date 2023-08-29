@@ -9,7 +9,7 @@ function Pokemon({ difficulty, setStateSliceName }) {
     const [length, setLength] = useState(difficulty);
     const [formData, setFormData] = useState('');
     const [count, setCount] = useState(0);
-    
+    const maxPokemon = 1010;
 
 
 
@@ -22,9 +22,9 @@ function Pokemon({ difficulty, setStateSliceName }) {
     const handleSubmit = (e) => {
         // Checks to see if pokemon is correctly guessed
         e.preventDefault();
-        let LowerCaseFormData = formData.toLowerCase();
+        let lowerCaseFormData = formData.toLowerCase();
         let fixedName = name.replace(/-/g, ' ');
-        if (LowerCaseFormData === fixedName) {
+        if (lowerCaseFormData === fixedName) {
             setLength(length-1);
             e.target.reset();
         } else {
@@ -42,7 +42,7 @@ function Pokemon({ difficulty, setStateSliceName }) {
     useEffect(function askPokemonAPI() {
         async function getPokemon() {
             // Gets the Pokemon from the api
-            const id = Math.floor(Math.random() * (1010 - 1) + 1);
+            const id = Math.floor(Math.random() * (maxPokemon - 1) + 1);
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
             setName(response.data.species.name);
             setSprite(response.data.sprites.front_default)
@@ -53,7 +53,7 @@ function Pokemon({ difficulty, setStateSliceName }) {
 
     return (
         <div className="poke-container">
-            <img className="pokemon-image" src={sprite} alt=""/>
+            <img className="pokemon-image" src={sprite} alt="pokemon"/>
             <form onSubmit={handleSubmit}>
                 <label className="scale">
                 Pokèmon Name: 

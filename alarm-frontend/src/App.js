@@ -17,10 +17,11 @@ function App() {
           <div className="container">
             <div>
               <ContextAlarm>
-                <Clock />
+                <Clock data-testid="clock"/>
                 <AlarmList 
                 setStateSliceName={setStateSliceName}
                 setDifficulty = {setDifficulty}
+                data-testid="AlarmList"
                 />
               </ContextAlarm>
             </div>
