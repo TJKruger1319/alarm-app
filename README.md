@@ -7,16 +7,16 @@ When setting an alarm, you have to set a certain type of problem to answer when 
 The types of alarms include:
 Math, Pokemon, and Typing
 
-![Alt text](alarm-frontend/images/Home.png)
+![Home](images/Home.png)
 
 This is the math alarm type:
 This uses a custom API I wrote in the backend
-![Alt text](alarm-frontend/images/math.png)
+![Math](images/math.png)
 
 This is the Pokèmon alarm type:
 This uses the PokeAPI to get the Pokèmon https://pokeapi.co/?ref=apilist.fun
-![Alt text](alarm-frontend/images/pokemon.png)
+![Pokemon](images/pokemon.png)
 
 This is the Typing alarm type:
 This uses a custom API I wrote in the backend to get the sentences
-![Alt text](alarm-frontend/images/typing.png)
+![Typing](images/typing.png)
