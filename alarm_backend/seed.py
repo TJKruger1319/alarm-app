@@ -9,7 +9,7 @@ Alarm.query.delete()
 
 
 alarm = Alarm(hour=11, minute=30, AMorPM="AM", type="math", difficulty=1)
-alarm2 = Alarm(hour=5, minute=55, AMorPM="PM", type="pokemon", difficulty=0)
+alarm2 = Alarm(hour=5, minute=55, AMorPM="PM", type="pokemon", difficulty=2)
 db.session.add(alarm)
 db.session.add(alarm2)
 db.session.commit()
