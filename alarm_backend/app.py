@@ -2,14 +2,14 @@ from flask import Flask, jsonify, request, make_response
 from models import db, connect_db, Alarm
 from helper import makeDict, generate_math_prompt, serialize, generate_random_sentence
 from flask_cors import CORS
-
+import os
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///alarmdb'
+app.config['SQLALCHEMY_DATABASE_URI'] =  os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 app.app_context().push()
 connect_db(app)
