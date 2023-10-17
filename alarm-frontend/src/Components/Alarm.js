@@ -7,7 +7,7 @@ import { BASE_URL } from '../constants';
 
 function Alarm({AMorPM, difficulty, hour, id, minute, type, handler, setStateSliceName, setDifficulty}) {
     // Actual alarm component
-    const { realHour, realMinute, amPm} = useContext(Context);
+    const { realHour, realMinute, amPm } = useContext(Context);
     const [alarmTime, setAlarmTime] = useState();
     const [alarmExists, setAlarmExists] = useState("");
 
